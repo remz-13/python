@@ -58,6 +58,8 @@ def hangman():
             sys.exit()
             break
     else:
+        print("bye XD")
+        time.sleep(0.05)
         shutdown_computer()
 
 if __name__ == "__main__":
