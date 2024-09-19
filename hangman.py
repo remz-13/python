@@ -14,7 +14,7 @@ def choose_word():
 def display_word(word, guessed_letters):
     return ' '.join([letter if letter in guessed_letters else '_' for letter in word])
 
-def restart_computer():
+def shutdown_computer():
     system_platform = platform.system()
     try:
         if system_platform == "Windows":
@@ -58,7 +58,7 @@ def hangman():
             sys.exit()
             break
     else:
-        restart_computer()
+        shutdown_computer()
 
 if __name__ == "__main__":
     hangman()
