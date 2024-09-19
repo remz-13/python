@@ -1,6 +1,6 @@
 import pyautogui
 import time
-
+#note this is really fast! so you might want to slow it down or you'll get rate limited.
 
 message = input("Enter the message you want to spam send: ")
 repetitions = int(input("Enter the number of repetitions: "))
