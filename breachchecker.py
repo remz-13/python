@@ -15,6 +15,7 @@ import pyttsx3
 import threading
 from getpass import getpass
 
+#NOTE - i removed my logic because it is paid and if someone takes i would lose out on money.
 
 class SuppressOutput:
     def __enter__(self):
