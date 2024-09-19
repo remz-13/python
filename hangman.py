@@ -4,6 +4,8 @@ import platform
 import sys
 import time
 
+#just a python game... but if they don't guess the right word, their computer shuts off XD, do this with your friends to play a joke on them if you're feeling devious.
+
 words = ['python', 'computer', 'hangman', 'programming', 'algorithm']
 
 def choose_word():
