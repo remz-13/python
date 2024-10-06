@@ -1,0 +1,146 @@
+from keyauth import api
+import os
+import hashlib
+import sys
+from colorama import init, Fore, Style
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+import pygame
+import threading
+from time import sleep
+import string
+import requests
+import ctypes
+import subprocess
+import random
+import time
+import socket
+import webbrowser
+
+# this is a base level of a cleaner in python 💀 but yeah this pretty much does nothing, if you want to experiment on this code you can, try and add a few things that remove ban traces and whatnot, have fun lmao
+
+COLORS = {
+    'reset': '\033[0m',
+    'red': '\033[31m',
+    'green': '\033[32m',
+    'yellow': '\033[33m',
+    'blue': '\033[34m',
+    'magenta': '\033[35m',
+    'cyan': '\033[36m',
+    'white': '\033[37m',
+    'bold': '\033[1m',
+}
+
+def set_console_size(width, height):
+    if os.name == 'nt':
+        hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+        if hwnd != 0:
+            h_stdout = ctypes.windll.kernel32.GetStdHandle(-11)
+            size = ctypes.wintypes._COORD(width, height)
+            ctypes.windll.kernel32.SetConsoleScreenBufferSize(h_stdout, size)
+            rect = ctypes.wintypes.SMALL_RECT(0, 0, width - 1, height - 1)
+            ctypes.windll.kernel32.SetConsoleWindowInfo(h_stdout, ctypes.c_bool(True), ctypes.byref(rect))
+
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def set_console_title():
+    if os.name == 'nt':
+        title = "remz is not him"
+        ctypes.windll.kernel32.SetConsoleTitleW(title)
+
+
+def getchecksum():
+    md5_hash = hashlib.md5()
+    with open(sys.argv[0], "rb") as file:
+        md5_hash.update(file.read())
+    return md5_hash.hexdigest()
+
+
+clear_console()
+set_console_title()
+
+def verify_key(keyauthapp):
+    try:
+        set_console_size(55, 16)
+        print("""
+                           __                     
+  _______ __ _  ___   ____/ /__ ___ ____  ___ ____
+ / __/ -_)  ' \/_ /  / __/ / -_) _ `/ _ \/ -_) __/
+/_/  \__/_/_/_//__/  \__/_/\__/\_,_/_//_/\__/_/   
+                                                  
+                                 """)
+        print("                        made by remz :)")
+        key = input(f'{Fore.BLUE}License: {Style.RESET_ALL}'). strip()
+        keyauthapp.license(key)
+        print(f"{Fore.GREEN}Key verified successfully!{Style.RESET_ALL}")
+        return True
+    except Exception as e:
+        print(f"\n{Fore.RED}Error: {e}{Style.RESET_ALL}")
+        return False
+
+
+keyauthapp = api(
+    name = "sigmar",
+    ownerid = "uNOYxoF01r", 
+    secret = "761c4daf2a765fb2de72122bc5d33412e881427485988b81f65325db27ab400a",
+    version = "1.0", 
+    hash_to_check = getchecksum()
+)
+
+
+
+if verify_key(keyauthapp):
+        clear_console()
+        while True:
+            print("\033[34mcleaning traces...\033[0m\n")
+            time.sleep(20)
+            clear_console()
+            print("\033[34mcleaning pc network...\033[0m\n")
+            time.sleep(12)
+            clear_console()
+            choice = input(f"{Fore.BLUE}do you want to reset your network adapters y/n?: {Style.RESET_ALL}")
+
+            if choice == 'y':
+                print("\033[34mresetting adapters...\033[0m\n")
+                time.sleep(2)
+                import subprocess
+                import time
+
+                def disable_all_network_adapters():
+                    subprocess.run("netsh interface set interface all admin=disable", shell=True)
+
+                def enable_all_network_adapters():
+                    subprocess.run("netsh interface set interface all admin=enable", shell=True)
+
+                def toggle_internet():
+                    print("\033[34mCleaning Network...\033[0m\n")
+                    clear_console()
+                    disable_all_network_adapters()
+    
+                time.sleep(10)
+    
+                print("\033[34mTurning Back On...\033[0m\n")
+                clear_console()
+                enable_all_network_adapters()
+                toggle_internet()
+
+                print(f"{Fore.GREEN}cleaned!{Style.RESET_ALL}")
+                input("press enter to exit....")
+                sys.exit()
+
+            elif choice == 'n':
+                clear_console()
+                print(f"{Fore.BLUE}not resetting adapters...{Style.RESET_ALL}")
+                time.sleep(2)
+                clear_console()
+                print(f"{Fore.BLUE}continuing.....{Style.RESET_ALL}")
+                clear_console()
+                time.sleep(5)
+                print(f"{Fore.GREEN}cleaned! your pc is now cleaned and traces have been removed....{Style.RESET_ALL}")
+                set_console_size(70, 16)
+                time.sleep(5)
+                clear_console()
+                set_console_size(55, 16)
+                time.sleep(2)
+                input("press enter to exit....")
+                sys.exit()
