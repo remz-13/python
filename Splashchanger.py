@@ -93,7 +93,7 @@ def verify():
                 input("Press Enter to exit")
                 return True
             else:
-                print("Image could not be retrieved. Check the URL and try again.")
+                print("Image could not be found and placed in the desired directory. Please try again.")
                 return False
 
         else:
@@ -104,5 +104,4 @@ def verify():
         print("Something went wrong, please try again...")
         print(f"Error details: {e}")
 
-# Run the verify function
 verify()
