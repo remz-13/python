@@ -49,8 +49,8 @@ def verify():
             duration = 650
 
 
-            splash_dir = r"E:\Fortnite\FortniteGame\Content\Splash"
-            save_directory = r"E:/Fortnite/FortniteGame/Binaries/Win64/EasyAntiCheat"
+            splash_dir = r"DRV:\Fortnite\FortniteGame\Content\Splash"
+            save_directory = r"DRV:/Fortnite/FortniteGame/Binaries/Win64/EasyAntiCheat"
             save_path = os.path.join(splash_dir, "Splash.bmp")
             save_sigma = os.path.join(save_directory, "SplashScreen.png")
 
